@@ -1,66 +1,94 @@
 # Demy Web Application
 
-Demy is a responsive and accessible web application built with Angular 19, designed to simplify the academic and administrative workflows of traditional education academies. This project is part of a broader initiative to deliver a modular, scalable, and user-friendly platform for coordinators and teachers.
+Responsive **Demy** web application for managing academies and supporting teachers in their daily work. The SPA consumes `demy-web-service` and organizes its features around identity, enrollment, scheduling, attendance, and billing contexts.
 
-## Project Overview
+![Organization dashboard for administrators](./docs/screenshots/admin-organization-en.webp)
 
-This web app was developed following the **Lean UX** methodology and **Domain-Driven Design (DDD)** principles, with a clear separation into bounded contexts (e.g., IAM, Attendance, Scheduling, Enrollments).
+## Role-based experiences
 
-## Tech Stack
+### Administrators
 
-- **Angular 19** with standalone components
-- **Angular Material** for UI components and theming
-- **i18n**: Internationalization using `@ngx-translate/core`
-- **i11y**: Accessibility-first design
-- **Routing**: Structured lazy-loaded routes per bounded context
-- **Fake API**: Temporary endpoints using MockAPI
-- **Responsive Design**: Mobile-first UI with adaptive layouts
+- Manage teachers, students, courses, classrooms, and academic periods.
+- Create, search, update, and delete enrollments.
+- Create weekly schedules and search schedule assignments.
+- Assign invoices and register payments and expenses.
+- Review the academy's financial transactions.
 
-## Getting Started
+<table>
+<tr>
+<td width="50%"><img src="./docs/screenshots/admin-enrollments-en.webp" alt="Enrollment management" /><br/><sub>Enrollment management</sub></td>
+<td width="50%"><img src="./docs/screenshots/admin-finance-en.webp" alt="Financial management" /><br/><sub>Expense registration and financial summary</sub></td>
+</tr>
+</table>
 
-### Prerequisites
+### Teachers
 
-- Node.js ≥ 18
-- Angular CLI 19
+- Review the weekly schedule and reschedule classes.
+- Record attendance by date and class session.
+- Review attendance reports by student and date range.
 
-### Install dependencies
+<table>
+<tr>
+<td width="70%"><img src="./docs/screenshots/teacher-attendance-en.webp" alt="Attendance registration" /><br/><sub>Attendance registration</sub></td>
+<td width="30%"><img src="./docs/screenshots/teacher-schedule-mobile-en.webp" alt="Teacher schedule on mobile" /><br/><sub>Responsive weekly schedule</sub></td>
+</tr>
+</table>
 
-```bash
-npm install
-```
+## Architecture and technology
 
-### Start development server
+- Angular 19 with standalone components and Angular Router.
+- Angular Material and responsive CSS.
+- `@ngx-translate/core` with English and Spanish catalogs.
+- Reactive forms, RxJS, and HTTP services grouped by bounded context.
+- JWT authentication; active session and role data are stored in `localStorage`.
+- Stripe.js for the subscription payment flow.
+- Functional separation across `iam-user`, `enrollments`, `scheduling`, `attendance`, `billing`, and `shared`.
 
-```bash
-ng serve
-```
+## Requirements
 
-Navigate to [http://localhost:4200](http://localhost:4200) in your browser.
+- Node.js 18.19 or newer.
+- npm 9 or newer.
+- A reachable [`demy-web-service`](https://github.com/smarteduhq/demy-web-service) instance.
 
-## Internationalization
+## Local setup
 
-This application supports both English and Spanish. Language switching is available via the UI. All texts are externalized using "@ngx-translate/core".
+1. Install dependencies:
 
-## Accessibility
+   ```bash
+   npm install
+   ```
 
-Accessibility has been integrated into components via:
-- ARIA labels
-- High contrast theming support
+2. Open `src/environments/environment.development.ts` and set `apiBaseUrl` to the local backend URL, for example:
 
-## Build
+   ```ts
+   apiBaseUrl: 'http://localhost:8090/api/v1'
+   ```
 
-To build the app for production:
+3. Start the development server:
 
-```bash
-ng build
-```
+   ```bash
+   npm start
+   ```
 
-The build artifacts will be stored in the "dist/" directory.
+4. Open [http://localhost:4200](http://localhost:4200).
 
-## Contributors
+Do not store credentials or private keys in environment files. A Stripe publishable key can be exposed by the client, but it must belong to the same environment configured by the backend.
 
-This project is developed by a team of Software Engineering students from UPC's School of Engineering.
+## Scripts
+
+| Command | Description |
+|---|---|
+| `npm start` | Starts the Angular development server. |
+| `npm run build` | Creates the production bundle in `dist/demy-web-app/` and enforces the configured size budgets. |
+| `npm run watch` | Rebuilds the development bundle when source files change. |
+| `npm test` | Runs unit tests with Karma and Jasmine. |
+
+## Demy ecosystem
+
+- [`demy-landing-page`](https://github.com/smarteduhq/demy-landing-page): public product website.
+- [`demy-web-service`](https://github.com/smarteduhq/demy-web-service): REST API consumed by this application.
+- [`demy-report`](https://github.com/smarteduhq/demy-report): academic report and project traceability.
 
 ## License
 
-This project is licensed under the MIT License.
+This repository is distributed under the [MIT License](./LICENSE).
