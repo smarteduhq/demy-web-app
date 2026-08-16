@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { AfterViewInit, Component, inject, signal } from '@angular/core';
 import { HeaderContentComponent } from '../header-content/header-content.component';
 import { SideNavigationBarComponent } from '../side-navigation-bar/side-navigation-bar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -7,6 +7,8 @@ import {Router, RouterOutlet} from '@angular/router';
 import { ContentWrapperComponent } from '../content-wrapper/content-wrapper.component';
 import { AuthenticationService } from '../../../iam-user/services/authentication.service';
 import { DemoBannerComponent } from '../demo-banner/demo-banner.component';
+import { DemoModeService } from '../../../demo/demo-mode.service';
+import { DemoRoutePreloaderService } from '../../../demo/demo-route-preloader.service';
 
 /**
  * Main layout component that integrates all structural elements including header,
@@ -28,12 +30,15 @@ import { DemoBannerComponent } from '../demo-banner/demo-banner.component';
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.css'
 })
-export class MainLayoutComponent {
+export class MainLayoutComponent implements AfterViewInit {
   /**
    * Signal indicating if the application is in mobile view.
    * Updates automatically when screen size changes.
    */
   readonly isMobile = signal<boolean>(false);
+
+  private readonly demoMode = inject(DemoModeService);
+  private readonly routePreloader = inject(DemoRoutePreloaderService);
 
   constructor(private observer: BreakpointObserver,
               private authService: AuthenticationService,
@@ -41,6 +46,12 @@ export class MainLayoutComponent {
     this.observer.observe([Breakpoints.Handset]).subscribe(result => {
       this.isMobile.set(result.matches);
     });
+  }
+
+  ngAfterViewInit(): void {
+    if (this.demoMode.isActive()) {
+      setTimeout(() => this.routePreloader.preloadDemoSidebarRoutes());
+    }
   }
 
   logout() {
