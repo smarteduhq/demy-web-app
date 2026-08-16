@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import {authenticationGuard} from './iam-user/services/authentication.guard';
+import { LoginComponent } from './public/pages/login/login.component';
 
 export const routes: Routes = [
   {
@@ -101,8 +102,7 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    loadComponent: () => import('./public/pages/login/login.component')
-      .then((module) => module.LoginComponent)
+    component: LoginComponent
   },
   {
     path: 'signup',

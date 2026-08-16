@@ -153,17 +153,28 @@ export class AuthenticationService {
    */
   signOut() {
     const wasDemo = this.demoMode.isActive();
-    if (wasDemo) {
-      this.demoMode.exit();
-    }
 
-    this.signedIn.next(false);
-    this.signedInUserId.next(0);
-    this.signedInUsername.next('');
+    const clearSignedInState = () => {
+      this.signedIn.next(false);
+      this.signedInUserId.next(0);
+      this.signedInUsername.next('');
+    };
+
     if (!wasDemo) {
       localStorage.removeItem('token');
+      clearSignedInState();
     }
-    this.router.navigate(['/login']).then();
+
+    void this.router.navigate(['/login']).then(navigated => {
+      if (!navigated) {
+        return;
+      }
+
+      if (wasDemo) {
+        this.demoMode.exit();
+        clearSignedInState();
+      }
+    });
   }
 
   /**
