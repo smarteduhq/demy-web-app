@@ -6,6 +6,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import {authenticationInterceptor} from "./iam-user/services/authentication.interceptor";
+import {demoApiInterceptor} from './demo/demo-api.interceptor';
 
 const httpLoaderFactory: (http: HttpClient) =>
   TranslateLoader = (http: HttpClient) =>
@@ -13,7 +14,7 @@ const httpLoaderFactory: (http: HttpClient) =>
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideHttpClient(withInterceptors([authenticationInterceptor])),
+    provideHttpClient(withInterceptors([demoApiInterceptor, authenticationInterceptor])),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideNativeDateAdapter(),

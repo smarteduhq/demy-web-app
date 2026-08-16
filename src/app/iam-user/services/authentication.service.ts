@@ -9,6 +9,7 @@ import {SignInRequest} from "../model/sign-in.request";
 import {SignInResponse} from "../model/sign-in.response";
 import { NotificationService } from '../../shared/services/notification.service';
 import { TranslateService } from '@ngx-translate/core';
+import { DemoModeService } from '../../demo/demo-mode.service';
 
 /**
  * Service for handling authentication operations.
@@ -37,6 +38,7 @@ export class AuthenticationService {
 
   private notification = inject(NotificationService);
   private translate = inject(TranslateService);
+  private readonly demoMode = inject(DemoModeService);
 
 
   /**
@@ -47,7 +49,23 @@ export class AuthenticationService {
    */
   constructor(private router: Router, private http: HttpClient) {
     const token = localStorage.getItem('token');
-    this.signedIn.next(!!token);
+    const demoActive = this.demoMode.isActive();
+    this.signedIn.next(!!token || demoActive);
+    if (demoActive) {
+      this.signedInUsername.next('Administrador demo');
+    }
+
+    this.demoMode.isActive$.subscribe(active => {
+      if (active) {
+        this.signedIn.next(true);
+        this.signedInUserId.next(0);
+        this.signedInUsername.next('Administrador demo');
+      } else if (!localStorage.getItem('token')) {
+        this.signedIn.next(false);
+        this.signedInUserId.next(0);
+        this.signedInUsername.next('');
+      }
+    });
   }
   /** Observable for monitoring sign-in state */
   get isSignedIn() {
@@ -134,10 +152,17 @@ export class AuthenticationService {
    * Clears session-related data (token, ID, username) and navigates to the login page.
    */
   signOut() {
+    const wasDemo = this.demoMode.isActive();
+    if (wasDemo) {
+      this.demoMode.exit();
+    }
+
     this.signedIn.next(false);
     this.signedInUserId.next(0);
     this.signedInUsername.next('');
-    localStorage.removeItem('token');
+    if (!wasDemo) {
+      localStorage.removeItem('token');
+    }
     this.router.navigate(['/login']).then();
   }
 

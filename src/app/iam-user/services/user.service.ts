@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserAccount } from '../model/user.entity';
 import { environment } from '../../../environments/environment';
+import { DemoModeService } from '../../demo/demo-mode.service';
 
 /**
  * Service responsible for managing user account operations such as registration,
@@ -16,6 +17,7 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root'
 })
 export class UserService {
+  private readonly demoMode = inject(DemoModeService);
   /** API base URL for user endpoints */
 
   private apiUrl = `${environment.apiBaseUrl}${environment.usersEndpointPath}`;
@@ -78,6 +80,8 @@ export class UserService {
    * @returns The role of the user as a string, or `null` if not found or invalid
    */
   getUserRole(): string | null {
+    if (this.demoMode.isActive()) return 'ADMIN';
+
     const userData = localStorage.getItem('userData');
     if (!userData) return null;
     try {

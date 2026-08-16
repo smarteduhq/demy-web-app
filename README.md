@@ -36,6 +36,8 @@ Responsive **Demy** web application for managing academies and supporting teache
 
 ## Architecture and technology
 
+The public frontend also includes an interactive /demo mode backed by static fixtures and an in-memory HTTP mock, so the portfolio experience does not require the API to be running.
+
 - Angular 19 with standalone components and Angular Router.
 - Angular Material and responsive CSS.
 - `@ngx-translate/core` with English and Spanish catalogs.
@@ -71,6 +73,8 @@ Responsive **Demy** web application for managing academies and supporting teache
    ```
 
 4. Open [http://localhost:4200](http://localhost:4200).
+
+To open the static demo directly, visit [http://localhost:4200/demo](http://localhost:4200/demo). Demo changes are local to the current session and reset when the page is reloaded.
 
 Do not store credentials or private keys in environment files. A Stripe publishable key can be exposed by the client, but it must belong to the same environment configured by the backend.
 

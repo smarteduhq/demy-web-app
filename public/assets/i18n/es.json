@@ -42,6 +42,7 @@
     "password": "Contraseña",
     "remember-me": "Recuérdame",
     "sign-in": "Ingresar",
+    "view-demo": "Ver demo",
     "forgot-password": "¿Olvidaste tu contraseña?",
     "errors": {
       "required": "Este campo es obligatorio",
@@ -53,6 +54,13 @@
     "no-permission": "No tienes permiso para acceder a esta sección."
   },
 
+  "demo": {
+    "banner": {
+      "title": "Modo demo",
+      "description": "Datos ficticios; los cambios se reinician al recargar.",
+      "exit": "Salir de demo"
+    }
+  },
   "sign-up": {
     "login": "Inicar Sesion",
     "title": "Crear Cuenta",

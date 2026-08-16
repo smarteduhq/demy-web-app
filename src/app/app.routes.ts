@@ -28,6 +28,7 @@ import {EnrollmentPageComponent} from './enrollments/pages/enrollment-page/enrol
 import {PaymentsLayoutComponent} from './billing/pages/payments-layout/payments-layout.component';
 import {InvoiceAssignComponent} from './billing/components/invoice-assign/invoice-assign.component';
 import {authenticationGuard} from './iam-user/services/authentication.guard';
+import {DemoEntryComponent} from './demo/demo-entry.component';
 
 export const routes: Routes = [
   {
@@ -60,6 +61,7 @@ export const routes: Routes = [
       { path: '', redirectTo: 'organization', pathMatch: 'full' }
     ]
   },
+  { path: 'demo', component: DemoEntryComponent },
   { path: 'login',
     component: LoginComponent
   },

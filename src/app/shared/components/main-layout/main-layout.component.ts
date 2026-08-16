@@ -6,6 +6,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import {Router, RouterOutlet} from '@angular/router';
 import { ContentWrapperComponent } from '../content-wrapper/content-wrapper.component';
 import { AuthenticationService } from '../../../iam-user/services/authentication.service';
+import { DemoBannerComponent } from '../demo-banner/demo-banner.component';
 
 /**
  * Main layout component that integrates all structural elements including header,
@@ -21,7 +22,8 @@ import { AuthenticationService } from '../../../iam-user/services/authentication
     SideNavigationBarComponent,
     MatSidenavModule,
     RouterOutlet,
-    ContentWrapperComponent
+    ContentWrapperComponent,
+    DemoBannerComponent
   ],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.css'

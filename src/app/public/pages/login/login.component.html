@@ -60,6 +60,10 @@
         <button mat-flat-button color="primary" class="button-color" type="submit" [disabled]="loginForm.invalid">
           {{ 'login.sign-in' | translate }}
         </button>
+
+        <a mat-stroked-button class="demo-button" routerLink="/demo">
+          {{ 'login.view-demo' | translate }}
+        </a>
       </form>
 
       <p class="register-text">

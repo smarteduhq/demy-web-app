@@ -1,0 +1,405 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fullName": "Mariana Torres",
+      "email": "mariana.torres@academiahorizonte.test",
+      "role": "ADMIN",
+      "status": "ACTIVE"
+    },
+    {
+      "id": 2,
+      "fullName": "Andrés Flores",
+      "email": "andres.flores@academiahorizonte.test",
+      "role": "TEACHER",
+      "specialty": "Matemática",
+      "status": "ACTIVE"
+    },
+    {
+      "id": 3,
+      "fullName": "Lucía Mendoza",
+      "email": "lucia.mendoza@academiahorizonte.test",
+      "role": "TEACHER",
+      "specialty": "Comunicación",
+      "status": "ACTIVE"
+    },
+    {
+      "id": 4,
+      "fullName": "Diego Salazar",
+      "email": "diego.salazar@academiahorizonte.test",
+      "role": "TEACHER",
+      "specialty": "Ciencias",
+      "status": "ACTIVE"
+    }
+  ],
+  "academies": [
+    {
+      "id": 1,
+      "userId": "1",
+      "periods": ["1", "2"],
+      "academy_name": "Academia Horizonte",
+      "ruc": "20601234567"
+    }
+  ],
+  "academicPeriods": [
+    {
+      "id": 1,
+      "periodName": "Ciclo regular 2026-I",
+      "startDate": "2026-03-02",
+      "endDate": "2026-07-18",
+      "isActive": false
+    },
+    {
+      "id": 2,
+      "periodName": "Ciclo regular 2026-II",
+      "startDate": "2026-08-03",
+      "endDate": "2026-12-19",
+      "isActive": true
+    }
+  ],
+  "students": [
+    {
+      "id": 1,
+      "firstName": "Camila",
+      "lastName": "Rojas",
+      "dni": "74125836",
+      "sex": "FEMALE",
+      "birthDate": "2008-04-15",
+      "address": "Jr. Los Cedros 245",
+      "phoneNumber": "987654321"
+    },
+    {
+      "id": 2,
+      "firstName": "Mateo",
+      "lastName": "Vega",
+      "dni": "72841365",
+      "sex": "MALE",
+      "birthDate": "2007-11-03",
+      "address": "Av. Primavera 820",
+      "phoneNumber": "986321547"
+    },
+    {
+      "id": 3,
+      "firstName": "Valentina",
+      "lastName": "Paredes",
+      "dni": "75963214",
+      "sex": "FEMALE",
+      "birthDate": "2009-01-27",
+      "address": "Calle Las Flores 118",
+      "phoneNumber": "985147236"
+    },
+    {
+      "id": 4,
+      "firstName": "Sebastián",
+      "lastName": "Castro",
+      "dni": "71652489",
+      "sex": "MALE",
+      "birthDate": "2008-09-21",
+      "address": "Jr. El Sol 409",
+      "phoneNumber": "984236517"
+    },
+    {
+      "id": 5,
+      "firstName": "Daniela",
+      "lastName": "Quispe",
+      "dni": "76421853",
+      "sex": "FEMALE",
+      "birthDate": "2007-06-12",
+      "address": "Av. La Cultura 534",
+      "phoneNumber": "983215476"
+    },
+    {
+      "id": 6,
+      "firstName": "Nicolás",
+      "lastName": "Herrera",
+      "dni": "70315842",
+      "sex": "MALE",
+      "birthDate": "2009-02-08",
+      "address": "Calle Los Pinos 76",
+      "phoneNumber": "982451367"
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "name": "Álgebra",
+      "code": "ALG",
+      "description": "Fundamentos de álgebra y resolución de problemas."
+    },
+    {
+      "id": 2,
+      "name": "Comunicación",
+      "code": "COM",
+      "description": "Comprensión lectora, redacción y argumentación."
+    },
+    {
+      "id": 3,
+      "name": "Ciencias",
+      "code": "CIE",
+      "description": "Exploración de fenómenos naturales y pensamiento científico."
+    },
+    {
+      "id": 4,
+      "name": "Razonamiento matemático",
+      "code": "RM",
+      "description": "Estrategias para resolver problemas de aptitud matemática."
+    }
+  ],
+  "classrooms": [
+    {
+      "id": 1,
+      "code": "A-101",
+      "capacity": 30,
+      "campus": "Sede Surco"
+    },
+    {
+      "id": 2,
+      "code": "A-204",
+      "capacity": 25,
+      "campus": "Sede Surco"
+    },
+    {
+      "id": 3,
+      "code": "B-102",
+      "capacity": 20,
+      "campus": "Sede Miraflores"
+    }
+  ],
+  "weeklySchedules": [
+    {
+      "id": 1,
+      "name": "Horario ciclo 2026-II",
+      "schedules": [
+        {
+          "id": 101,
+          "dayOfWeek": "Monday",
+          "startTime": "08:00",
+          "endTime": "10:00",
+          "courseId": 1,
+          "classroomId": 1,
+          "teacherId": 2
+        },
+        {
+          "id": 102,
+          "dayOfWeek": "Tuesday",
+          "startTime": "10:30",
+          "endTime": "12:30",
+          "courseId": 2,
+          "classroomId": 2,
+          "teacherId": 3
+        },
+        {
+          "id": 103,
+          "dayOfWeek": "Wednesday",
+          "startTime": "08:00",
+          "endTime": "10:00",
+          "courseId": 3,
+          "classroomId": 3,
+          "teacherId": 4
+        },
+        {
+          "id": 104,
+          "dayOfWeek": "Thursday",
+          "startTime": "10:30",
+          "endTime": "12:30",
+          "courseId": 4,
+          "classroomId": 1,
+          "teacherId": 2
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Horario intensivo de verano",
+      "schedules": [
+        {
+          "id": 105,
+          "dayOfWeek": "Saturday",
+          "startTime": "09:00",
+          "endTime": "12:00",
+          "courseId": 1,
+          "classroomId": 2,
+          "teacherId": 2
+        }
+      ]
+    }
+  ],
+  "enrollments": [
+    {
+      "id": 1,
+      "studentId": 1,
+      "academicPeriodId": 2,
+      "weeklyScheduleName": "Horario ciclo 2026-II",
+      "amount": 450,
+      "currency": "PEN",
+      "enrollmentStatus": "ACTIVE",
+      "paymentStatus": "PAID"
+    },
+    {
+      "id": 2,
+      "studentId": 2,
+      "academicPeriodId": 2,
+      "weeklyScheduleName": "Horario ciclo 2026-II",
+      "amount": 450,
+      "currency": "PEN",
+      "enrollmentStatus": "ACTIVE",
+      "paymentStatus": "PENDING"
+    },
+    {
+      "id": 3,
+      "studentId": 3,
+      "academicPeriodId": 2,
+      "weeklyScheduleName": "Horario ciclo 2026-II",
+      "amount": 450,
+      "currency": "PEN",
+      "enrollmentStatus": "ACTIVE",
+      "paymentStatus": "PAID"
+    },
+    {
+      "id": 4,
+      "studentId": 4,
+      "academicPeriodId": 2,
+      "weeklyScheduleName": "Horario ciclo 2026-II",
+      "amount": 450,
+      "currency": "PEN",
+      "enrollmentStatus": "ACTIVE",
+      "paymentStatus": "PARTIAL"
+    },
+    {
+      "id": 5,
+      "studentId": 5,
+      "academicPeriodId": 2,
+      "weeklyScheduleName": "Horario intensivo de verano",
+      "amount": 320,
+      "currency": "PEN",
+      "enrollmentStatus": "ACTIVE",
+      "paymentStatus": "PAID"
+    },
+    {
+      "id": 6,
+      "studentId": 6,
+      "academicPeriodId": 1,
+      "weeklyScheduleName": "Horario ciclo 2026-II",
+      "amount": 450,
+      "currency": "PEN",
+      "enrollmentStatus": "COMPLETED",
+      "paymentStatus": "PAID"
+    }
+  ],
+  "invoices": [
+    {
+      "id": 1,
+      "dni": "74125836",
+      "name": "Camila Rojas",
+      "amount": 450,
+      "currency": "PEN",
+      "dueDate": "2026-08-10",
+      "status": "PAID"
+    },
+    {
+      "id": 2,
+      "dni": "72841365",
+      "name": "Mateo Vega",
+      "amount": 450,
+      "currency": "PEN",
+      "dueDate": "2026-08-20",
+      "status": "PENDING"
+    },
+    {
+      "id": 3,
+      "dni": "71652489",
+      "name": "Sebastián Castro",
+      "amount": 450,
+      "currency": "PEN",
+      "dueDate": "2026-07-31",
+      "status": "OVERDUE"
+    },
+    {
+      "id": 4,
+      "dni": "75963214",
+      "name": "Valentina Paredes",
+      "amount": 450,
+      "currency": "PEN",
+      "dueDate": "2026-08-25",
+      "status": "PAID"
+    }
+  ],
+  "payments": [
+    {
+      "id": 1,
+      "invoiceId": 1,
+      "amount": 450,
+      "currency": "PEN",
+      "method": "TRANSFER",
+      "paidAt": "2026-08-08T10:15:00.000Z"
+    },
+    {
+      "id": 2,
+      "invoiceId": 4,
+      "amount": 450,
+      "currency": "PEN",
+      "method": "CARD",
+      "paidAt": "2026-08-09T14:20:00.000Z"
+    }
+  ],
+  "financialTransactions": [
+    {
+      "id": 1,
+      "type": "INCOME",
+      "category": "STUDENTS",
+      "concept": "Paid student invoice",
+      "date": "2026-08-08T10:15:00.000Z",
+      "payment": {
+        "id": 1,
+        "invoiceId": 1,
+        "amount": 450,
+        "currency": "PEN",
+        "method": "TRANSFER",
+        "paidAt": "2026-08-08T10:15:00.000Z"
+      }
+    },
+    {
+      "id": 2,
+      "type": "INCOME",
+      "category": "STUDENTS",
+      "concept": "Paid student invoice",
+      "date": "2026-08-09T14:20:00.000Z",
+      "payment": {
+        "id": 2,
+        "invoiceId": 4,
+        "amount": 450,
+        "currency": "PEN",
+        "method": "CARD",
+        "paidAt": "2026-08-09T14:20:00.000Z"
+      }
+    },
+    {
+      "id": 3,
+      "type": "EXPENSE",
+      "category": "SERVICES",
+      "concept": "Servicio de internet de agosto",
+      "date": "2026-08-05T09:00:00.000Z",
+      "payment": {
+        "id": 3,
+        "amount": 180,
+        "currency": "PEN",
+        "method": "TRANSFER",
+        "paidAt": "2026-08-05T09:00:00.000Z"
+      }
+    },
+    {
+      "id": 4,
+      "type": "EXPENSE",
+      "category": "MATERIALS",
+      "concept": "Material educativo para aulas",
+      "date": "2026-08-06T16:30:00.000Z",
+      "payment": {
+        "id": 4,
+        "amount": 120,
+        "currency": "PEN",
+        "method": "CASH",
+        "paidAt": "2026-08-06T16:30:00.000Z"
+      }
+    }
+  ]
+}

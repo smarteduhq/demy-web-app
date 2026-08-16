@@ -42,6 +42,7 @@
     "password": "Password",
     "remember-me": "Remember me",
     "sign-in": "Sign In",
+    "view-demo": "View demo",
     "forgot-password": "Forgot my password?",
     "errors": {
       "required": "This field is required",
@@ -51,6 +52,13 @@
     "success": "You have logged in successfully.",
     "error": "Incorrect email or password. Please try again.",
     "no-permission": "You do not have permission to access this section."
+  },
+  "demo": {
+    "banner": {
+      "title": "Demo mode",
+      "description": "Fictional data; changes reset when you reload.",
+      "exit": "Exit demo"
+    }
   },
   "sign-up": {
     "login": "Log In",
