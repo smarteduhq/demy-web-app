@@ -122,6 +122,20 @@ button:hover {
   background-color: var(--color-primary-1);
 }
 
+.demo-button {
+  border-color: var(--color-primary-1);
+  color: var(--color-primary-1);
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  text-decoration: none;
+  width: 100%;
+}
+
+.demo-button:hover {
+  background-color: rgba(0, 86, 179, 0.08);
+}
+
 .register-text {
   text-align: center;
   margin-top: 8px;

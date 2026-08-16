@@ -1,6 +1,7 @@
 import {CanActivateFn, Router} from '@angular/router';
 import {inject} from "@angular/core";
 import {AuthenticationService} from "./authentication.service";
+import {DemoModeService} from "../../demo/demo-mode.service";
 import {map, take} from "rxjs";
 
 /**
@@ -18,12 +19,13 @@ import {map, take} from "rxjs";
 export const authenticationGuard: CanActivateFn = (route,
                                                    state) => {
   const authenticationService = inject(AuthenticationService);
+  const demoMode = inject(DemoModeService);
   const router = inject(Router);
   /**
    * Check the `isSignedIn` status and decide whether to allow access or redirect.
    */
   return authenticationService.isSignedIn.pipe(take(1), map(isSignedIn => {
-    if (isSignedIn) return true;
+    if (isSignedIn || demoMode.isActive()) return true;
     else {
       router.navigate(['/login']).then();
       return false;

@@ -9,6 +9,7 @@
       (menuToggle)="drawer.toggle()" />
 
     <div class="main-content">
+      <app-demo-banner />
       <app-content-wrapper>
         <router-outlet></router-outlet>
       </app-content-wrapper>
@@ -22,6 +23,7 @@
     <app-side-navigation-bar (logout)="logout()" />
 
     <div class="main-content">
+      <app-demo-banner />
       <app-content-wrapper>
         <router-outlet></router-outlet>
       </app-content-wrapper>

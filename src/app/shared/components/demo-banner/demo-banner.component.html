@@ -1,0 +1,12 @@
+@if (isActive$ | async) {
+  <aside class="demo-banner" role="status">
+    <mat-icon aria-hidden="true">science</mat-icon>
+    <div class="demo-copy">
+      <strong>{{ 'demo.banner.title' | translate }}</strong>
+      <span>{{ 'demo.banner.description' | translate }}</span>
+    </div>
+    <button mat-stroked-button type="button" (click)="exit()">
+      {{ 'demo.banner.exit' | translate }}
+    </button>
+  </aside>
+}

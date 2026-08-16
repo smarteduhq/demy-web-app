@@ -1,0 +1,40 @@
+.demo-banner {
+  align-items: center;
+  background: #fff7df;
+  border-bottom: 1px solid #e8c96a;
+  color: #5d4500;
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.65rem 1rem;
+}
+
+.demo-banner mat-icon {
+  color: #9a7100;
+}
+
+.demo-copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.demo-copy span {
+  font-size: 0.85rem;
+}
+
+.demo-banner button {
+  border-color: #9a7100;
+  color: #5d4500;
+}
+
+@media (max-width: 600px) {
+  .demo-banner {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .demo-banner button {
+    margin-left: 2.25rem;
+  }
+}
