@@ -21,31 +21,31 @@ export class OrganizationLayoutComponent {
     {
       title: 'organization.courses.title',
       description: 'organization.courses.description',
-      image: 'assets/img/organization-courses.jpg',
+      image: 'assets/img/organization-courses.webp',
       route: '/organization/courses'
     },
     {
       title: 'organization.rooms.title',
       description: 'organization.rooms.description',
-      image: 'assets/img/organization-rooms.jpg',
+      image: 'assets/img/organization-rooms.webp',
       route: '/organization/classrooms'
     },
     {
       title: 'organization.teachers.title',
       description: 'organization.teachers.description',
-      image: 'assets/img/organization-teachers.jpg',
+      image: 'assets/img/organization-teachers.webp',
       route: '/organization/teachers'
     },
     {
       title: 'organization.weekly.title',
       description: 'organization.weekly.description',
-      image: 'assets/img/organization-weekly.jpg',
+      image: 'assets/img/organization-weekly.webp',
       route: '/organization/weekly-schedules'
     },
     {
       title: 'organization.periods.title',
       description: 'organization.periods.description',
-      image: 'assets/img/organization-periods.jpg',
+      image: 'assets/img/organization-periods.webp',
       route: '/organization/academic-periods'
     },
   ];
